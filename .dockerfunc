@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+dcleanup(){
+	docker rm $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+dm() {
+	if [ -z "${1}" ]; then
+		echo -e "Usage: dm COMMAND [arg...]\n"
+		echo "Commands:"
+		echo "  active              Print which machine is active"
+		echo "  config              Print the connection config for machine"
+		echo "  create              Create a machine"
+		echo "  env                 Display the commands to set up the environment for the Docker client"
+		echo "  inspect             Inspect information about a machine"
+		echo "  ip                  Get the IP address of a machine"
+		echo "  kill                Kill a machine"
+		echo "  ls                  List machines"
+		echo "  regenerate-certs    Regenerate TLS Certificates for a machine"
+		echo "  restart             Restart a machine"
+		echo "  rm                  Remove a machine"
+		echo "  ssh                 Log into or run a command on a machine with SSH."
+		echo "  scp                 Copy files between machines"
+		echo "  start               Start a machine"
+		echo "  stop                Stop a machine"
+		echo "  upgrade             Upgrade a machine to the latest version of Docker"
+		echo "  url                 Get the URL of a machine"
+		echo -e "  help, h             Shows a list of commands or help for one command\n"
+		echo "  ev                 Set up the environment for the Docker client"
+		return 1
+	fi
+
+	if [ "${1}" == "ev" ]; then
+		eval $(docker-machine env ${2})
+		if [ "$?" == "0" ]; then
+			echo "Docker Client enviroment set to use '${2}'"
+		fi
+		return 0
+	fi
+
+	docker-machine $@
+	return $?
+}
+
+arsolu() {
+	if [[ "$DOCKER_MACHINE_NAME" == "" ]]; then
+		echo "Could not find a docker machine name"
+		echo "Maybe you need to 'dm ev' it ;)"
+		return 1
+	fi
+	local socket="/tmp/ssh-$(uuidgen)-agent"
+	local host="docker@$(docker-machine ip ${DOCKER_MACHINE_NAME})"
+	ssh -i ${DOCKER_CERT_PATH}/id_rsa -A -M -S $socket -f $host tail -f /dev/null
+	local host_ssh_auth_sock=$(ssh -S $socket $host env | grep "SSH_AUTH_SOCK" | cut -f 2 -d =)
+	docker run -it --rm -v ${host_ssh_auth_sock}:/tmp/ssh-agent \
+	  -v ${HOME}:${HOME} \
+		-e "SSH_AUTH_SOCK=/tmp/ssh-agent" \
+		-e "HOME=${HOME}" \
+		arsolu/toolbox bash -c "cd $(pwd) ; bash $@"
+	ssh -S $socket -O exit $host
+}

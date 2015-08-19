@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# go path
+export GOPATH=$HOME/.go
+
+# update path
+export PATH=/usr/local/bin:/usr/local/go/bin:$PATH:$GOPATH/bin:/sbin
