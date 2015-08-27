@@ -447,7 +447,10 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Desktop
 defaults write com.apple.dock wvous-tr-corner -int 4
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Put display to sleep
+# Bottom left screen corner → Show application windows
+defaults write com.apple.dock wvous-bl-corner -int 3
+defaults write com.apple.dock wvous-bl-modifier -int 0
+# Bottom right screen corner → Put display to sleep
 defaults write com.apple.dock wvous-br-corner -int 10
 defaults write com.apple.dock wvous-br-modifier -int 0
 
