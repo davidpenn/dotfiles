@@ -5,6 +5,10 @@ dcleanup(){
 	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
+db() {
+	docker build -t $(basename $(pwd)) .
+}
+
 dm() {
 	if [ -z "${1}" ]; then
 		echo -e "Usage: dm COMMAND [arg...]\n"
@@ -59,4 +63,10 @@ arsolu() {
 		-e "HOME=${HOME}" \
 		arsolu/toolbox bash -c "cd $(pwd) ; bash $@"
 	ssh -S $socket -O exit $host
+}
+
+irssi() {
+	docker run -it --rm \
+	-v ${HOME}/.irssi:/home/user/.irssi \
+	irssi $@
 }
