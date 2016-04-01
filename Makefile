@@ -13,3 +13,4 @@ dotfiles:
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done
+	ln -sfn $(CURDIR)/$$(uname -s).gitignore $(HOME)/.gitignore
