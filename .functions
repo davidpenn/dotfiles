@@ -363,3 +363,15 @@ xname(){
 		-e "/^_NET_WM_NAME\(UTF8_STRING\) = ($match_qstring)$/{s//title=\1/; h}" \
 		-e '${g; p}'
 }
+
+kwm(){
+	if [[ $1 = "start" ]]; then
+		echo "Starting"
+		launchctl load /usr/local/opt/kwm/homebrew.mxcl.kwm.plist
+	elif [[ $1 = "stop" ]]; then
+		echo "Stopping"
+		launchctl unload /usr/local/opt/kwm/homebrew.mxcl.kwm.plist
+	else
+		echo "Usage: \`kwm [start|stop]\`"
+	fi
+}
