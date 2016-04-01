@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # go path
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/Documents/go
 
 # update path
 export PATH=/usr/local/sbin:$PATH:$GOPATH/bin
