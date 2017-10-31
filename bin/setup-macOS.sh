@@ -268,8 +268,9 @@ setup_timemachine() {
 usage() {
 	echo -e "setup-macOS.sh\n\tThis script installs my basic setup for macOS\n"
 	echo "Usage:"
-	echo "  base                     - setup sources & install base pkgs"
-	echo "  basemin                  - setup sources & install base min pkgs"
+	echo "  all                      - base, basemin, defaults"
+	echo "  base                     - install base pkgs"
+	echo "  basemin                  - install base min pkgs"
 	echo "  defaults                 - write default settings"
 }
 
@@ -288,6 +289,16 @@ main() {
 		check_xcode
 		base_min
 	elif [[ $cmd == "defaults" ]]; then
+		setup_addressbook
+		setup_clock
+		setup_dock
+		setup_finder
+		setup_input
+		setup_screen
+		setup_timemachine
+	elif [[ $cmd == "all" ]]; then
+		check_xcode
+		base # runs basemin
 		setup_addressbook
 		setup_clock
 		setup_dock
