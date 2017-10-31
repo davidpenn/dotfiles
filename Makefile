@@ -1,16 +1,17 @@
-.PHONY: all default install dotfiles
+kernel = $$(uname -s)
+.PHONY: all dotfiles
 
 all: dotfiles
 
-default: install
-
-install: all
-
 dotfiles:
-	# https://raw.githubusercontent.com/github/gitignore/master/Global/OSX.gitignore
 	# add aliases for dotfiles
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git"  -not -name ".DS_Store" -not -name ".*.swp" -maxdepth 1); do \
+	for file in $(shell find $(CURDIR) -name ".*" -not -name ".git" -not -name ".gitignore" -not -name ".gnupg"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
-	done
-	ln -sfn $(CURDIR)/$$(uname -s).gitignore $(HOME)/.gitignore
+	done; \
+	mkdir -p $(HOME)/.gnupg;
+	ln -sfn $(CURDIR)/.gnupg/gpg.conf $(HOME)/.gnupg/gpg.conf;
+	ln -sfn $(CURDIR)/.gnupg/$(kernel)-gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf;
+	sudo chmod 600 $(HOME)/.gnupg/gpg.conf;
+	sudo chmod 700 $(HOME)/.gnupg;
+	ln -fn $(CURDIR)/gitignore $(HOME)/.gitignore;

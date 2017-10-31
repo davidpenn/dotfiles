@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
+#
 
 # go path
-export GOPATH=$HOME/.go
+export GOPATH="${HOME}/.go"
 
 # update path
-export PATH=/usr/local/sbin:$PATH:$GOPATH/bin
+export PATH=${GOPATH}/bin:${PATH}
+
+# update cdpath
+export CDPATH=${CDPATH}:$GOPATH/src/github.com:$GOPATH/src
