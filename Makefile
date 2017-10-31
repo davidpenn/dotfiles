@@ -14,4 +14,4 @@ dotfiles:
 	ln -sfn $(CURDIR)/.gnupg/$(kernel)-gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf;
 	sudo chmod 600 $(HOME)/.gnupg/gpg.conf;
 	sudo chmod 700 $(HOME)/.gnupg;
-	ln -fn $(CURDIR)/gitignore $(HOME)/.gitignore;
+	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore;
