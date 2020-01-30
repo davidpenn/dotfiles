@@ -4,14 +4,16 @@ kernel = $$(uname -s)
 all: dotfiles
 
 dotfiles:
-	# add aliases for dotfiles
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".git" -not -name ".gitignore" -not -name ".gnupg"); do \
+	for file in $(shell find $(CURDIR) -name ".*" -not -name ".git" -not -name ".gitignore" -not -name ".gnupg"  -not -name ".ssh"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \
 	mkdir -p $(HOME)/.gnupg;
 	ln -sfn $(CURDIR)/.gnupg/gpg.conf $(HOME)/.gnupg/gpg.conf;
 	ln -sfn $(CURDIR)/.gnupg/$(kernel)-gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf;
-	sudo chmod 600 $(HOME)/.gnupg/gpg.conf;
-	sudo chmod 700 $(HOME)/.gnupg;
-	ln -sfn $(CURDIR)/gitignore $(HOME)/.gitignore;
+	chmod 600 $(HOME)/.gnupg/gpg.conf;
+	chmod 700 $(HOME)/.gnupg;
+	ln -sfn $(CURDIR)/$(kernel).gitignore $(HOME)/.gitignore;
+	mkdir -p $(HOME)/.ssh;
+	ln -sfn $(CURDIR)/.ssh/config $(HOME)/.ssh/config;
+	chmod 700 $(HOME)/.ssh;

@@ -140,9 +140,6 @@
 	smudge = git-lfs smudge %f
 	required = true
 
-[url "git@git.arsolu.net:"]
-	insteadOf = https://git.arsolu.net/
-
 # Uncomment if you want fetch to also get all github pull requests, this is rather
 # large on big repos.
 #[remote "origin"]

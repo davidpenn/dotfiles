@@ -1,11 +1,24 @@
 #!/usr/bin/env bash
-#
+
+# add user installed gems to path `gem install {pacakge} --user-install`
+if [ -d "${HOME}/.gem/ruby/2.3.0/bin" ]; then
+	export PATH="${HOME}/.gem/ruby/2.3.0/bin:${PATH}"
+fi
 
 # go path
 export GOPATH="${HOME}/.go"
 
-# update path
-export PATH=${GOPATH}/bin:${PATH}
+# add go to path
+export PATH=${HOME}/.bin:${GOPATH}/bin:${PATH}
 
 # update cdpath
-export CDPATH=${CDPATH}:$GOPATH/src/github.com:$GOPATH/src
+export CDPATH=${CDPATH}:${HOME}/src/git.p3nn.com/david/
+
+# macOS Android SDK
+if [ -d "${HOME}/Library/Android/sdk" ]; then
+	export ANDROID_HOME=${HOME}/Library/Android/sdk
+	export PATH=${PATH}:${ANDROID_HOME}/emulator
+	export PATH=${PATH}:${ANDROID_HOME}/tools
+	export PATH=${PATH}:${ANDROID_HOME}/tools/bin
+	export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+fi
