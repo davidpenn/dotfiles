@@ -38,3 +38,7 @@ uuid() {
 		uuidgen | awk '{gsub("-","",$0); print tolower($0)}'
 	done
 }
+
+initmod() {
+	go mod init $(pwd | sed -n -e 's/.*src\///p')
+}
