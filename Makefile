@@ -14,6 +14,3 @@ dotfiles:
 	chmod 600 $(HOME)/.gnupg/gpg.conf;
 	chmod 700 $(HOME)/.gnupg;
 	ln -sfn $(CURDIR)/$(kernel).gitignore $(HOME)/.gitignore;
-	mkdir -p $(HOME)/.ssh;
-	ln -sfn $(CURDIR)/.ssh/config $(HOME)/.ssh/config;
-	chmod 700 $(HOME)/.ssh;
