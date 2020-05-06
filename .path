@@ -6,13 +6,13 @@ if [ -d "${HOME}/.gem/ruby/2.3.0/bin" ]; then
 fi
 
 # go path
-export GOPATH="${HOME}/.go"
+export GOPATH="${HOME}"
 
 # add go to path
-export PATH=${HOME}/.bin:${GOPATH}/bin:${PATH}
+export PATH=${GOPATH}/bin:${PATH}
 
 # update cdpath
-export CDPATH=${CDPATH}:${HOME}/src/github.com/davidpenn/:${HOME}/src/git.p3nn.com/david/
+export CDPATH=${CDPATH}:${HOME}/src/github.com/davidpenn/:${HOME}/src/github.com/securityscorecard/
 
 # macOS Android SDK
 if [ -d "${HOME}/Library/Android/sdk" ]; then
@@ -21,4 +21,8 @@ if [ -d "${HOME}/Library/Android/sdk" ]; then
 	export PATH=${PATH}:${ANDROID_HOME}/tools
 	export PATH=${PATH}:${ANDROID_HOME}/tools/bin
 	export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+fi
+
+if [ -d "/usr/local/opt/python/libexec/bin" ]; then
+	export PATH="/usr/local/opt/python/libexec/bin:${PATH}"
 fi
