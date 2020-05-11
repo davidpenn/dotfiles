@@ -42,3 +42,18 @@ uuid() {
 initmod() {
 	go mod init $(pwd | sed -n -e 's/.*src\///p')
 }
+
+gh() {
+	local toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
+	if [ -z "$toplevel" ]; then
+		echo "directory is not a git repository"
+		return
+	fi
+
+	if [[ $toplevel =~ "github.com" ]]; then
+		local url="https://github.com${toplevel##*github.com}"
+		open "${url}"
+	else
+		echo "could not find github.com"
+	fi
+}
