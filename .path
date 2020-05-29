@@ -6,7 +6,7 @@ if [ -d "${HOME}/.gem/ruby/2.3.0/bin" ]; then
 fi
 
 # go path
-export GOPATH="${HOME}"
+export GOPATH="${HOME}/.go"
 
 # add go to path
 export PATH=${GOPATH}/bin:${PATH}
