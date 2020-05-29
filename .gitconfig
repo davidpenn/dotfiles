@@ -140,17 +140,11 @@
 	smudge = git-lfs smudge %f
 	required = true
 
-# Uncomment if you want fetch to also get all github pull requests, this is rather
-# large on big repos.
-#[remote "origin"]
-	#fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
 
 [commit]
 	gpgsign = true
 
-[user]
-	name = David Penn
-	email = david.penn@me.com
-
-[github]
-	user = davidpenn
+[include]
+    path = .extra/gitconfig

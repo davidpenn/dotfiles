@@ -33,12 +33,19 @@ done
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{bash_prompt,aliases,functions,path,extra,exports}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		source "$file"
 	fi
 done
+
+if [ -d "${HOME}/.extra" ]; then
+	files=($(find ${HOME}/.extra -name '*.sh'))
+	for file in "${files[@]}"; do
+		source "$file"
+	done
+	unset files
+fi
 unset file
 
 # enable programmable completion features
