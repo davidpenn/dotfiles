@@ -12,7 +12,7 @@ export GOPATH="${HOME}/.go"
 export PATH=${GOPATH}/bin:${PATH}
 
 # update cdpath
-export CDPATH=${CDPATH}:${HOME}/src/github.com/davidpenn/:${HOME}/src/github.com/securityscorecard/
+export CDPATH=${CDPATH}:${HOME}/src/github.com/davidpenn/:${HOME}/src/github.com/securityscorecard/:${HOME}/src/github.com/
 
 # macOS Android SDK
 if [ -d "${HOME}/Library/Android/sdk" ]; then
