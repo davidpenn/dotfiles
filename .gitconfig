@@ -130,8 +130,11 @@
 [commit]
 	gpgsign = true
 
-[include]
-    path = .extra/gitconfig
-
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[includeIf "gitdir:~/src/github.com/davidpenn/"]
+	path = .gitconfig-davidpenn
+
+[includeIf "gitdir:~/src/github.com/securityscorecard/"]
+	path = .gitconfig-securityscorecard
