@@ -133,8 +133,10 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-[includeIf "gitdir:~/src/github.com/davidpenn/"]
-	path = .gitconfig-davidpenn
+[user]
+	signingkey = B48165CAB9D32FDF
+	name = David Penn
+	email = david.penn@me.com
 
 [includeIf "gitdir:~/src/github.com/securityscorecard/"]
 	path = .gitconfig-securityscorecard
