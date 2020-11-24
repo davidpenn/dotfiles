@@ -4,7 +4,7 @@ kernel = $$(uname -s)
 all: dotfiles
 
 dotfiles:
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".git" -not -name ".gitignore" -not -name ".gnupg"  -not -name ".ssh"); do \
+	for file in $(shell find $(CURDIR) -maxdepth 1 -name ".*" -not -name ".git" -not -name ".gitignore" -not -name ".gitmodules"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done;
