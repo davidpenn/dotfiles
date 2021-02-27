@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 # add user installed gems to path `gem install {pacakge} --user-install`
-if [ -d "${HOME}/.gem/ruby/2.3.0/bin" ]; then
-	export PATH="${HOME}/.gem/ruby/2.3.0/bin:${PATH}"
+if [ -d "${HOME}/.gem/ruby" ]; then
+	while IFS= read -r -d $'\0'; do
+		export PATH="$REPLY:${PATH}"
+	done < <(find ${HOME}/.gem/ruby -maxdepth 2 -type d -path '*/bin' -print0)
 fi
 
 # go path
@@ -13,15 +15,6 @@ export PATH=${GOPATH}/bin:${PATH}
 
 # update cdpath
 export CDPATH=${CDPATH}:${HOME}/src/github.com/davidpenn/:${HOME}/src/github.com/securityscorecard/:${HOME}/src/github.com/
-
-# macOS Android SDK
-if [ -d "${HOME}/Library/Android/sdk" ]; then
-	export ANDROID_HOME=${HOME}/Library/Android/sdk
-	export PATH=${PATH}:${ANDROID_HOME}/emulator
-	export PATH=${PATH}:${ANDROID_HOME}/tools
-	export PATH=${PATH}:${ANDROID_HOME}/tools/bin
-	export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-fi
 
 if [ -d "/usr/local/opt/python/libexec/bin" ]; then
 	export PATH="/usr/local/opt/python/libexec/bin:${PATH}"

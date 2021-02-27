@@ -124,9 +124,6 @@
 	smudge = git-lfs smudge %f
 	required = true
 
-[remote "origin"]
-	fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
-
 [commit]
 	gpgsign = true
 

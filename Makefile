@@ -9,3 +9,6 @@ dotfiles:
 		ln -sfn $$file $(HOME)/$$f; \
 	done;
 	ln -sfn $(CURDIR)/$(kernel).gitignore $(HOME)/.gitignore;
+
+uninstall:
+	ls -al $(HOME) | grep $(CURDIR) | awk '{print $$9}' | xargs -I % rm -f $(HOME)/%
