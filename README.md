@@ -1,6 +1,7 @@
 # dotfiles
 
-# About
+## Prerequisites
+- [Starship Shell Prompt](https://starship.rs/guide/#%F0%9F%9A%80-installation)
 
 ## Installing
 
