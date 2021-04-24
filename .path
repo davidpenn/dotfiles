@@ -10,8 +10,13 @@ fi
 # go path
 export GOPATH="${HOME}/.go"
 
-# add go to path
+# add gopath/bin to path
 export PATH=${GOPATH}/bin:${PATH}
+
+# manual installed go binaries
+if [ -d "/usr/local/go/bin" ]; then
+	export PATH=$PATH:/usr/local/go/bin
+fi
 
 # update cdpath
 export CDPATH=${CDPATH}:${HOME}/src/github.com/davidpenn/:${HOME}/src/github.com/securityscorecard/:${HOME}/src/github.com/
