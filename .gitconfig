@@ -118,6 +118,7 @@
 [push]
 	# change to maching for machines with older versions of git 1.x.x
 	default = simple
+	autoSetupRemote = true
 
 [filter "lfs"]
 	clean = git-lfs clean %f
@@ -127,13 +128,19 @@
 [commit]
 	gpgsign = true
 
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = op-ssh-sign
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
 [user]
-	signingkey = B48165CAB9D32FDF
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFgbwoqV/UFX81s+MzciX05LJFltkE8z28KuDbTYbb5
 	name = David Penn
 	email = david.penn@me.com
 
-[includeIf "gitdir:~/src/github.com/securityscorecard/"]
-	path = .gitconfig-securityscorecard
+[includeIf "hasconfig:remote.*.url:git@github.com:securityscorecard/**"]
+	path = ~/.gitconfig-ssc

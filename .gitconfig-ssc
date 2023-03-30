@@ -1,0 +1,4 @@
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILead31KPmdhHh/wOEQT3OCFV5xoBbVFcVgQJUSLtHwk
+	name = David Penn
+	email = dpenn@securityscorecard.io
