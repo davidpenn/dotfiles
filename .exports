@@ -15,6 +15,3 @@ export LC_ALL="en_US.UTF-8";
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
-
-# Have homebrew install casks into /Applications instead of ~/Applications
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
