@@ -1,12 +1,10 @@
-# Source: https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore
-
 # General
 .DS_Store
 .AppleDouble
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*

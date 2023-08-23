@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# create and secure cache and configuration directories.
+for dir in ~/.cache ~/.config; do mkdir -p "$dir"; chmod 700 "$dir"; done
+
+# sparse checkout
+yadm gitconfig core.sparseCheckout true
+yadm sparse-checkout set '/*' '!README.md' '!UNLICENSE'

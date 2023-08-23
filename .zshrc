@@ -1,27 +1,5 @@
-setopt interactivecomments
+# Add brew env after /etc/path.d/* has set the path from /etc/zprofile
+test -x /opt/homebrew/bin/brew && source <(/opt/homebrew/bin/brew shellenv)
 
-# init prompt
-eval "$(starship init zsh)"
-
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-for file in ~/.{aliases,functions,path,exports,extra}; do
-	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
-		source "$file"
-	fi
-done
-
-# Highlight the current autocomplete option
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-# Better SSH/Rsync/SCP Autocomplete
-zstyle ':completion:*:(scp|rsync):*' tag-order ' hosts:-ipaddr:ip\ address hosts:-host:host files'
-zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
-zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
-
-# Allow for autocomplete to be case insensitive
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
-  '+l:|?=** r:|?=**'
-
-# Initialize the autocompletion
-autoload -Uz compinit && compinit -i
+# Load the shell dotfiles, and then some
+test -d ${HOME}/.config/zsh.d && source <(cat $HOME/.config/zsh.d/*.zsh)

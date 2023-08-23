@@ -1,6 +1,0 @@
-*~
-.extra
-.gnupg
-!.gnupg/gpg.conf
-!.gnupg/*-gpg-agent.conf
-.vscode/
