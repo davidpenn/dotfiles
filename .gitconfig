@@ -1,6 +1,7 @@
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	l = log --color --decorate --pretty=format:'%C(auto)%h -%d %s %C(green)(%cr) %C(blue) %an (%G?)%C(reset)' -n 20 --abbrev-commit
+	lg = !git l --graph
 
 	# View the current working tree status using the short format
 	s = status -s
@@ -45,12 +46,10 @@
 
 	# Remove branches that have already been merged with master
 	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote update -p"
 
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
-
-	lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
 
 [apply]
 	# Detect whitespace errors when applying a patch
@@ -108,9 +107,12 @@
 
 [gpg "ssh"]
 	program = op-ssh-sign
+	allowedSignersFile = ~/.config/git/allowed_signers
 
 [push]
-	# change to maching for machines with older versions of git 1.x.x
+	autoSetupRemote = true
+
+	# Push only the current branch if its named upstream is identical
 	default = simple
 
 [url "git@github.com:"]
