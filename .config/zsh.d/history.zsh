@@ -1,5 +1,5 @@
 # Command configuration (https://zsh.sourceforge.io/Doc/Release/Options.html)
-HISTFILE=~/.cache/zsh_history
+HISTFILE=${HOME}/.cache/$(hostname -f)/zsh_history
 HISTSIZE=50000000
 SAVEHIST=50000000
 # zsh sessions will append their history list to the history file, rather than replace it.
