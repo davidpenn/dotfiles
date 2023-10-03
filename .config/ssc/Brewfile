@@ -38,26 +38,12 @@ cask "hex-fiend"
 cask "jetbrains-toolbox"
 cask "keepingyouawake"
 cask "mimestream"
-cask "moonlight"
-cask "nvidia-geforce-now"
 cask "obsidian"
 cask "postman"
 cask "setapp"
 cask "slack"
-cask "spotify"
-cask "tailscale"
 cask "tiles"
-cask "tradingview"
 cask "visual-studio-code"
 cask "warp"
 cask "zoom"
-
-mas "1Password for Safari", id: 1569813296
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Microsoft Word", id: 462054704
-mas "NextDNS", id: 1464122853
-mas "Save to Raindrop.io", id: 1549370672
-mas "Xcode", id: 497799835
 
