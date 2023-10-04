@@ -45,7 +45,6 @@ cask "postman"
 cask "setapp"
 cask "slack"
 cask "spotify"
-cask "tailscale"
 cask "tiles"
 cask "tradingview"
 cask "visual-studio-code"
@@ -59,5 +58,7 @@ mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft Word", id: 462054704
 mas "NextDNS", id: 1464122853
 mas "Save to Raindrop.io", id: 1549370672
+mas "Tailscale", id: 1475387142
+mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
 
