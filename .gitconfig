@@ -114,8 +114,11 @@
 	# Push only the current branch if its named upstream is identical
 	default = simple
 
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+[url "git@github.com:davidpenn"]
+	insteadOf = https://github.com/davidpenn
+
+[url "git@github.com:securityscorecard"]
+	insteadOf = https://github.com/securityscorecard
 
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHFgbwoqV/UFX81s+MzciX05LJFltkE8z28KuDbTYbb5

@@ -4,6 +4,7 @@ typeset -gU path
 
 path=(
   ${HOME}/.local/bin
+  ${HOME}/.cargo/bin
   "${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"
   $path
 )
