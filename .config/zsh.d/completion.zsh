@@ -1,4 +1,4 @@
-autoload -Uz compinit && compinit -i -d ${HOME}/.cache/$(hostname -f)/zcompdump
+autoload -Uz compinit && compinit -i -d ${HOME}/.cache/$(hostname -s)/zcompdump
 
 # Enable approximate completions
 zstyle ':completion:*' completer _complete _ignored _correct _approximate

@@ -127,3 +127,9 @@
 
 [includeIf "hasconfig:remote.*.url:git@github.com:securityscorecard/**"]
 	path = ~/.config/ssc/gitconfig
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
