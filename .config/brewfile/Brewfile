@@ -1,14 +1,19 @@
+tap "chipmk/tap"
+tap "coder/coder"
+tap "databricks/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
-
+tap "hudochenkov/sshpass"
+tap "rcmdnk/file"
+brew "ansible"
 brew "apache-spark"
 brew "autorestic"
-brew "autossh"
-brew "python@3.11"
 brew "awscli"
 brew "duckdb"
 brew "eza"
-brew "go"
+brew "fzf"
+brew "gh"
+brew "git-lfs"
 brew "golangci-lint"
 brew "httpie"
 brew "ipcalc"
@@ -18,45 +23,69 @@ brew "mas"
 brew "minio-mc"
 brew "neofetch"
 brew "neovim"
+brew "pyenv"
 brew "rust"
 brew "saml2aws"
 brew "sbt"
 brew "scala"
-brew "starship"
-brew "syncthing"
+brew "stow"
+brew "syncthing", restart_service: true
 brew "synergy-core", restart_service: true
-brew "terraform"
+brew "tfenv"
 brew "vault"
 brew "watch"
-brew "yadm"
+brew "wget"
+brew "zoxide"
+brew "chipmk/tap/docker-mac-net-connect"
+brew "coder/coder/coder"
+brew "databricks/tap/databricks"
+brew "hudochenkov/sshpass/sshpass"
+brew "rcmdnk/file/brew-file"
 
 cask "1password"
 cask "1password-cli"
+cask "audio-hijack"
+cask "chatgpt"
 cask "docker"
+cask "elgato-camera-hub"
 cask "firefox"
+cask "font-jetbrains-mono-nerd-font"
 cask "hex-fiend"
 cask "jetbrains-toolbox"
+cask "kaleidoscope"
 cask "keepingyouawake"
+cask "keybase"
+cask "keyboardcleantool"
+cask "ledger-live"
+cask "lm-studio"
+cask "loopback"
 cask "mimestream"
-cask "moonlight"
+cask "nordvpn"
+cask "notion-calendar"
 cask "nvidia-geforce-now"
 cask "obsidian"
-cask "postman"
 cask "setapp"
 cask "slack"
 cask "spotify"
 cask "tiles"
+cask "todoist"
+cask "tower"
 cask "tradingview"
 cask "visual-studio-code"
 cask "warp"
+cask "whatsapp"
 cask "zoom"
-
 mas "1Password for Safari", id: 1569813296
+mas "Home Assistant", id: 1099568401
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Microsoft Word", id: 462054704
 mas "NextDNS", id: 1464122853
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Save to Raindrop.io", id: 1549370672
 mas "Tailscale", id: 1475387142
 mas "Velja", id: 1607635845
