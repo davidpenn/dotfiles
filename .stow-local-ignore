@@ -1,4 +1,5 @@
 \.git
 \.DS_STORE
+^/justfile
 ^/UNLICENSE
 ^/README.md

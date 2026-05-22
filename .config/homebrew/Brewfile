@@ -1,0 +1,60 @@
+require "socket"
+
+# Cloud & Infrastructure
+brew "awscli"
+brew "saml2aws"
+
+# Backup & Storage
+brew "autorestic"
+brew "rclone"
+
+# Data & Databases
+brew "duckdb"
+brew "libpq", link: true
+
+# Development Tools
+brew "gh"
+brew "go"
+brew "just"
+brew "neovim"
+brew "rust"
+brew "stow"
+brew "uv"
+cask "claude-code"
+cask "jetbrains-toolbox"
+cask "visual-studio-code"
+cask "warp"
+
+# CLI Utilities
+brew "eza"
+brew "fzf"
+brew "httpie"
+brew "ipcalc"
+brew "jq"
+brew "mas"
+brew "oh-my-posh"
+brew "rg"
+brew "watch"
+brew "wget"
+brew "zoxide"
+
+# Security & Password Management
+cask "1password"
+
+# Web Browsers
+cask "firefox"
+cask "google-chrome"
+
+# Productivity & Utilities
+cask "keepingyouawake"
+cask "obsidian"
+cask "raycast"
+
+# Host-specific (skipped on ssc machines)
+unless Socket.gethostname.downcase.start_with?("ssc")
+  cask "docker-desktop"
+  cask "mimestream"
+  cask "nvidia-geforce-now"
+  cask "tradingview"
+  cask "tower"
+end
