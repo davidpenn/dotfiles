@@ -93,4 +93,6 @@ alias vim="nvim"
 alias week="date +%V"
 alias ts="date +%s"
 
-test -f ${HOME}/.extra && source ${HOME}/.extra
+if [[ -f ~/.extra ]]; then
+  source ~/.extra
+fi

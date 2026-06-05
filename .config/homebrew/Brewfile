@@ -1,8 +1,14 @@
 require "socket"
 
 # Cloud & Infrastructure
+brew "ansible"
 brew "awscli"
+brew "helm"
+brew "k9s"
+brew "kubectx"
 brew "saml2aws"
+brew "talosctl"
+brew "tenv"
 
 # Backup & Storage
 brew "autorestic"
@@ -13,6 +19,7 @@ brew "duckdb"
 brew "libpq", link: true
 
 # Development Tools
+brew "cmake"
 brew "gh"
 brew "go"
 brew "just"
@@ -24,6 +31,7 @@ cask "claude-code"
 cask "jetbrains-toolbox"
 cask "visual-studio-code"
 cask "warp"
+brew "yq"
 
 # CLI Utilities
 brew "eza"
@@ -53,8 +61,13 @@ cask "raycast"
 # Host-specific (skipped on ssc machines)
 unless Socket.gethostname.downcase.start_with?("ssc")
   cask "docker-desktop"
+  cask "imazing"
+  cask "macwhisper"
   cask "mimestream"
   cask "nvidia-geforce-now"
+  cask "tailscale-app"
   cask "tradingview"
   cask "tower"
+  cask "spotify"
+  cask "windows-app"
 end
