@@ -1,5 +1,6 @@
 \.git
 \.DS_STORE
+\.idea
 ^/justfile
 ^/UNLICENSE
 ^/README.md

@@ -1,4 +1,5 @@
 install:
+  mkdir -p $HOME/.config/
   stow -t $HOME .
 
 uninstall:
