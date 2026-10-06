@@ -22,6 +22,10 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::eza
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
+# oh-my-posh (loaded below) owns the prompt and never evaluates RPROMPT's
+# $(aws_prompt_info), so without this the plugin leaves that literal text
+# sitting in RPROMPT on every new shell.
+SHOW_AWS_PROMPT=false
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 

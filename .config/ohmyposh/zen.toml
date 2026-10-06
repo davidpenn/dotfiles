@@ -36,6 +36,13 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   overflow = 'hidden'
 
   [[blocks.segments]]
+    type = 'aws'
+    style = 'plain'
+    foreground = '#FF9900'
+    background = 'transparent'
+    template = '{{ .Profile }}{{ if .Region }} ({{ .Region }}){{ end }}'
+
+  [[blocks.segments]]
     type = 'executiontime'
     style = 'plain'
     foreground = 'yellow'
