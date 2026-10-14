@@ -1,5 +1,9 @@
 require "socket"
 
+work = Socket.gethostname.downcase.start_with?("ssc")
+
+tap "steipete/tap"
+
 # Cloud & Infrastructure
 brew "ansible"
 brew "argocd"
@@ -35,6 +39,7 @@ brew "uv"
 brew "xcodegen"
 cask "claude-code"
 cask "codex"
+cask "steipete/tap/codexbar"
 cask "jetbrains-toolbox"
 cask "visual-studio-code"
 cask "warp"
@@ -68,24 +73,33 @@ cask "google-chrome"
 cask "chatgpt"
 cask "claude"
 cask "fantastical"
-cask "granola"
+cask "istat-menus"
 cask "keepingyouawake"
 cask "loopback"
 cask "obsidian"
+cask "paste"
 cask "raycast"
 cask "typeless"
 
-# Host-specific (skipped on ssc machines)
-unless Socket.gethostname.downcase.start_with?("ssc")
+# Work-only (ssc machines)
+if work
+  cask "granola"
+end
+
+# Personal-only (skipped on ssc machines)
+unless work
   cask "docker-desktop"
   cask "imazing"
+  cask "ledger-wallet"
   cask "macwhisper"
   cask "mimestream"
   cask "nvidia-geforce-now"
   cask "tailscale-app"
   cask "tradingview"
+  cask "transmission"
   cask "tower"
   cask "spotify"
+  cask "vlc"
   cask "windows-app"
   cask "zoom"
 
