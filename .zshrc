@@ -1,5 +1,6 @@
 # Shell integrations
 test -x /opt/homebrew/bin/brew && source <(/opt/homebrew/bin/brew shellenv zsh)
+test -x /home/linuxbrew/.linuxbrew/bin/brew && source <(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)
 command -v fzf > /dev/null && source <(fzf --zsh)
 command -v zoxide > /dev/null && source <(zoxide init --cmd cd zsh)
 
