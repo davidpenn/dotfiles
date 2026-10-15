@@ -1,8 +1,9 @@
 require "socket"
 
 work = Socket.gethostname.downcase.start_with?("ssc")
+mac = OS.mac?
 
-tap "steipete/tap"
+tap "steipete/tap" if mac
 
 # Cloud & Infrastructure
 brew "ansible"
@@ -24,7 +25,7 @@ brew "syncthing", restart_service: :changed
 # Data & Databases
 brew "duckdb"
 brew "libpq", link: true
-cask "clickhouse"
+cask "clickhouse" if mac
 
 # Development Tools
 brew "cmake"
@@ -36,24 +37,24 @@ brew "opencode"
 brew "rust"
 brew "stow"
 brew "uv"
-brew "xcodegen"
+brew "xcodegen" if mac
 cask "claude-code"
 cask "codex"
-cask "steipete/tap/codexbar"
-cask "jetbrains-toolbox"
-cask "visual-studio-code"
-cask "warp"
+cask "steipete/tap/codexbar" if mac
+cask "jetbrains-toolbox" if mac
+cask "visual-studio-code" if mac
+cask "warp" if mac
 brew "yq"
 
 # CLI Utilities
-brew "dockutil"
+brew "dockutil" if mac
 brew "eza"
 brew "ffmpeg"
 brew "fzf"
 brew "httpie"
 brew "ipcalc"
 brew "jq"
-brew "mas"
+brew "mas" if mac
 brew "oh-my-posh"
 brew "ripgrep"
 brew "ssh-copy-id"
@@ -63,31 +64,31 @@ brew "zoxide"
 
 # Security & Password Management
 brew "openbao"
-cask "1password"
+cask "1password" if mac
 
 # Web Browsers
-cask "firefox"
-cask "google-chrome"
+cask "firefox" if mac
+cask "google-chrome" if mac
 
 # Productivity & Utilities
-cask "chatgpt"
-cask "claude"
-cask "fantastical"
-cask "istat-menus"
-cask "keepingyouawake"
-cask "loopback"
-cask "obsidian"
-cask "paste"
-cask "raycast"
-cask "typeless"
+cask "chatgpt" if mac
+cask "claude" if mac
+cask "fantastical" if mac
+cask "istat-menus" if mac
+cask "keepingyouawake" if mac
+cask "loopback" if mac
+cask "obsidian" if mac
+cask "paste" if mac
+cask "raycast" if mac
+cask "typeless" if mac
 
-# Work-only (ssc machines)
-if work
+# Work-only (ssc machines, macOS)
+if mac && work
   cask "granola"
 end
 
-# Personal-only (skipped on ssc machines)
-unless work
+# Personal-only (skipped on ssc machines and Linux)
+if mac && !work
   cask "docker-desktop"
   cask "imazing"
   cask "ledger-wallet"
