@@ -2,12 +2,19 @@
 
 version = 2
 final_space = true
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
+console_title_template = '{{ if .Env.SSH_CONNECTION }}{{ .UserName }}@{{ .HostName }}: {{ end }}{{ .Shell }} in {{ .Folder }}'
 
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
   newline = true
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    foreground = 'green'
+    background = 'transparent'
+    template = '{{ if .SSHSession }}{{ .UserName }}@{{ .HostName }} {{ end }}'
 
   [[blocks.segments]]
     type = 'path'
