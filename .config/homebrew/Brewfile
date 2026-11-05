@@ -68,7 +68,6 @@ cask "1password" if mac
 
 # Web Browsers
 cask "firefox" if mac
-cask "google-chrome" if mac
 
 # Productivity & Utilities
 cask "chatgpt" if mac
@@ -90,6 +89,7 @@ end
 # Personal-only (skipped on ssc machines and Linux)
 if mac && !work
   cask "docker-desktop"
+  cask "google-chrome"
   cask "imazing"
   cask "ledger-wallet"
   cask "macwhisper"
@@ -101,6 +101,7 @@ if mac && !work
   cask "tower"
   cask "spotify"
   cask "vlc"
+  cask "whatsapp"
   cask "windows-app"
   cask "zoom"
 
