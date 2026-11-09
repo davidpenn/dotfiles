@@ -93,6 +93,8 @@ if mac && !work
   cask "imazing"
   cask "ledger-wallet"
   cask "macwhisper"
+  cask "microsoft-excel"
+  cask "microsoft-word"
   cask "mimestream"
   cask "nvidia-geforce-now"
   cask "tailscale-app"
