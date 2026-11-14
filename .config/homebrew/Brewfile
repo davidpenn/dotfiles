@@ -34,6 +34,7 @@ brew "go"
 brew "just"
 brew "neovim"
 brew "opencode"
+brew "openspec"
 brew "rust"
 brew "stow"
 brew "uv"
@@ -65,6 +66,7 @@ brew "zoxide"
 # Security & Password Management
 brew "openbao"
 cask "1password" if mac
+cask "1password-cli" if mac
 
 # Web Browsers
 cask "firefox" if mac
